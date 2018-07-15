@@ -35,8 +35,4 @@ module.exports = {
     fs: 'empty',
     net: 'empty'
   },
-  devtool: 'source-map',
-  devServer: {
-    contentBase: './dist'
-  },
 };

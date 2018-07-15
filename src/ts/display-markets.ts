@@ -37,7 +37,7 @@ export default function displayMarkets(marketsInfo: MarketInfo[]): Node {
                 }
                 isBinary = outcome.description === null;
                 oddP.innerText = (!isBinary ? outcome.description : outcome.id ? "Yes" : "No") + ": " +
-                    (hasOdd ? value.eq(0) ? "INF (ARBITRAGE)" : value.toFixed(2) : "1.0");
+                    (hasOdd ? value.eq(0) ? "∞" : value.toFixed(2) : "1.0");
                 if (hasOdd) {
                     hasAnyOdds = true;
                 }
@@ -53,7 +53,8 @@ export default function displayMarkets(marketsInfo: MarketInfo[]): Node {
                     oddPs.sort(
                         (a: [Node, Big, string], b: [Node, Big, string]) => parseInt(b[2]) - parseInt(a[2]));
                 } else {
-                    oddPs.sort((a: [Node, Big, string], b: [Node, Big, string]) => a[1].cmp(b[1]));
+                    oddPs.sort((a: [Node, Big, string], b: [Node, Big, string]) =>
+                        (a[1].eq(0) ? 1 : b[1].eq(0) ? -1 : a[1].cmp(b[1])));
                 }
                 for (let a of oddPs) {
                     oddsDiv.appendChild(a[0]);

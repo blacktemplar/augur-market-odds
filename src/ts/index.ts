@@ -37,7 +37,9 @@ augur.connect({ethereumNode, augurNode})
                 marketInfo.odds = computeOdds(marketInfo);
             }
         }
-        document.body.appendChild(displayMarkets(marketsInfo));
+        let el = document.getElementById('content');
+        el.innerHTML = "";
+        el.appendChild(displayMarkets(marketsInfo));
     })
     .catch((e: any) => {
         console.log(e);

@@ -21,7 +21,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Augur Market Odds'
+      title: 'Augur Market Odds',
+      template: 'src/html/index.html'
     })
   ],
   resolve: {

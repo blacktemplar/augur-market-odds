@@ -2,10 +2,6 @@ import MarketInfo from './interfaces/market-info';
 import Big from 'big.js';
 
 export default function displayMarkets(marketsInfo: MarketInfo[]): Node {
-    let content = document.createElement("div");
-    let caption = document.createElement("h1");
-    caption.innerText = "Augur Market Odds";
-    content.appendChild(caption);
     let table = document.createElement("div");
     table.className = "table";
     for (let marketInfo of marketsInfo) {
@@ -66,6 +62,5 @@ export default function displayMarkets(marketsInfo: MarketInfo[]): Node {
             }
         }
     }
-    content.appendChild(table);
-    return content;
+    return table;
 }

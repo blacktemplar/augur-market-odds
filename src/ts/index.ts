@@ -5,14 +5,16 @@ import MarketInfo from './interfaces/market-info';
 import computeOdds from './compute-odds';
 import '../css/style.css';
 
+let infuraProjectId = process.env.INFURA_PROJECT_ID || "";
+
 let ethereumNode = {
     httpAddresses: [
         "http://127.0.0.1:8545", // local HTTP address for Geth node
-        "https://mainnet.infura.io/augur" // hosted http address for Geth node on the Rinkeby test network
+        "https://mainnet.infura.io/v3/" + infuraProjectId // hosted http address for Geth node on the Rinkeby test network
     ],
     wsAddresses: [
         "ws://127.0.0.1:8546", // local WebSocket address for Geth node
-        "wss://mainnet.infura.io/ws" // hosted WebSocket address for Geth node on the Rinkeby test network
+        "wss://mainnet.infura.io/ws/v3/" + infuraProjectId // hosted WebSocket address for Geth node on the Rinkeby test network
     ]
     // ipc addresses can also be specified as:
     // ipcAddresses: [ ... ]
